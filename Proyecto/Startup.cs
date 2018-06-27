@@ -32,7 +32,10 @@ namespace Proyecto
         {
             var connection = Configuration.GetConnectionString("Dev");
             services.AddDbContext<ApplicationDbContext>(Options => Options.UseSqlServer(connection));
-          
+
+            //Mis servicios
+            services.AddTransient<IUsuarioServices, UsuarioServices>();
+
 
             services.AddMvc();
         }

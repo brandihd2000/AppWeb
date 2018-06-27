@@ -16,3 +16,21 @@ C:\Proyecto\Proyecto\bin\Debug\netcoreapp2.0\Persistence.pdb
 C:\Proyecto\Proyecto\bin\Debug\netcoreapp2.0\Services.pdb
 C:\Proyecto\Proyecto\bin\Debug\netcoreapp2.0\Models.pdb
 C:\Proyecto\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.csproj.CopyComplete
+C:\Proyecto\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Proyecto Web.deps.json
+C:\Proyecto\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Proyecto Web.runtimeconfig.json
+C:\Proyecto\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Proyecto Web.runtimeconfig.dev.json
+C:\Proyecto\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Proyecto Web.dll
+C:\Proyecto\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Proyecto Web.pdb
+C:\Proyecto\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Models.dll
+C:\Proyecto\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Persistence.dll
+C:\Proyecto\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Services.dll
+C:\Proyecto\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Persistence.pdb
+C:\Proyecto\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Services.pdb
+C:\Proyecto\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Models.pdb
+C:\Proyecto\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.csprojResolveAssemblyReference.cache
+C:\Proyecto\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.csproj.CoreCompileInputs.cache
+C:\Proyecto\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.AssemblyInfoInputs.cache
+C:\Proyecto\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.AssemblyInfo.cs
+C:\Proyecto\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.csproj.CopyComplete
+C:\Proyecto\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.dll
+C:\Proyecto\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.pdb

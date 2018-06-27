@@ -7,3 +7,17 @@ C:\Proyecto\Services\obj\Debug\netcoreapp2.0\Services.AssemblyInfoInputs.cache
 C:\Proyecto\Services\obj\Debug\netcoreapp2.0\Services.AssemblyInfo.cs
 C:\Proyecto\Services\obj\Debug\netcoreapp2.0\Services.dll
 C:\Proyecto\Services\obj\Debug\netcoreapp2.0\Services.pdb
+C:\Proyecto\AppWeb\Services\bin\Debug\netcoreapp2.0\Services.deps.json
+C:\Proyecto\AppWeb\Services\bin\Debug\netcoreapp2.0\Services.dll
+C:\Proyecto\AppWeb\Services\bin\Debug\netcoreapp2.0\Services.pdb
+C:\Proyecto\AppWeb\Services\bin\Debug\netcoreapp2.0\Models.dll
+C:\Proyecto\AppWeb\Services\bin\Debug\netcoreapp2.0\Persistence.dll
+C:\Proyecto\AppWeb\Services\bin\Debug\netcoreapp2.0\Models.pdb
+C:\Proyecto\AppWeb\Services\bin\Debug\netcoreapp2.0\Persistence.pdb
+C:\Proyecto\AppWeb\Services\obj\Debug\netcoreapp2.0\Services.csprojResolveAssemblyReference.cache
+C:\Proyecto\AppWeb\Services\obj\Debug\netcoreapp2.0\Services.csproj.CoreCompileInputs.cache
+C:\Proyecto\AppWeb\Services\obj\Debug\netcoreapp2.0\Services.AssemblyInfoInputs.cache
+C:\Proyecto\AppWeb\Services\obj\Debug\netcoreapp2.0\Services.AssemblyInfo.cs
+C:\Proyecto\AppWeb\Services\obj\Debug\netcoreapp2.0\Services.csproj.CopyComplete
+C:\Proyecto\AppWeb\Services\obj\Debug\netcoreapp2.0\Services.dll
+C:\Proyecto\AppWeb\Services\obj\Debug\netcoreapp2.0\Services.pdb
