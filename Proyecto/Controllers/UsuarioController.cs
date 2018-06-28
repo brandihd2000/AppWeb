@@ -25,9 +25,16 @@ namespace Proyecto_Web.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Json(
-                "ola mundo"
-            );
+            var result = _usuarioServices.GetAll();
+
+            if (!result.Any())
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(result);
+            }
         }
 
     }

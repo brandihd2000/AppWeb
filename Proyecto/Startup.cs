@@ -47,6 +47,11 @@ namespace Proyecto
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler();
+            }
+            app.UseStatusCodePages();
 
             app.UseCors(builder => {
                 builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
