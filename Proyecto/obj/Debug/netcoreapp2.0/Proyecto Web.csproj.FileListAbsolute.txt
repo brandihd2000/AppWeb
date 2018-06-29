@@ -34,3 +34,21 @@ C:\Proyecto\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.AssemblyInfo.cs
 C:\Proyecto\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.csproj.CopyComplete
 C:\Proyecto\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.dll
 C:\Proyecto\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.pdb
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.dll
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.pdb
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Proyecto Web.deps.json
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Proyecto Web.runtimeconfig.json
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Proyecto Web.runtimeconfig.dev.json
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Proyecto Web.dll
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Proyecto Web.pdb
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Models.dll
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Persistence.dll
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Services.dll
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Persistence.pdb
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Services.pdb
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\bin\Debug\netcoreapp2.0\Models.pdb
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.csproj.CoreCompileInputs.cache
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.AssemblyInfoInputs.cache
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.AssemblyInfo.cs
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.csprojAssemblyReference.cache
+C:\Users\nel_a\Source\Repos\AppWeb\Proyecto\obj\Debug\netcoreapp2.0\Proyecto Web.csproj.CopyComplete
