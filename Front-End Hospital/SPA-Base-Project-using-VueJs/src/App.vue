@@ -6,7 +6,6 @@
     <el-container>
     <el-container>
       <el-header>
-          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <el-row>
           <el-col justify style="padding:7px;" :span="2">
             <div class="botonNav">
@@ -22,14 +21,14 @@
       </el-header>
       <el-main>
         <el-row>
-          <el-col :span="24">
+          <el-col :span="20" :offset="2">
             <router-view></router-view>
           </el-col>
         </el-row>
       </el-main>
-      <el-footer>© <a target="_blank" href="http://anexsoft.com/p/186/proyecto-base-spa-con-vue-vuex-vuerouter-axios-y-element-ui">{{ 'Desarrollo por Anexsoft ' + new Date().getFullYear() }}</a></el-footer>
+      <el-footer>© <a target="_blank" href="http://anexsoft.com/p/186/proyecto-base-spa-con-vue-vuex-vuerouter-axios-y-element-ui">{{ 'Desarrollo por Satisfaction ' + new Date().getFullYear() }}</a></el-footer>
     </el-container>
-  </el-container>
+   </el-container>
 </el-container>
 </template>
 

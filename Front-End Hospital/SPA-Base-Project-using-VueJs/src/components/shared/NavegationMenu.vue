@@ -38,6 +38,14 @@ export default {
           { icon: "list", text: "Opción 1", path: "/configuration/opcion1" },
           { icon: "list", text: "Opción 2", path: "/configuration/opcion2" }
         ]
+      },
+      {
+        icon: "user",
+        text: "Usuario",
+        children: [
+          { icon: "plus", text: "Agregar", path: "/usuario" },
+          { icon: "list", text: "Listar", path: "/usuario" }
+        ]
       }
     ]
   }),
