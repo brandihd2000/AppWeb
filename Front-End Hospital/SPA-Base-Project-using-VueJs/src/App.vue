@@ -35,7 +35,6 @@
 <script>
 
 
-
 import navegationmenu from "@/components/shared/NavegationMenu";
 
 export default {
@@ -48,7 +47,7 @@ export default {
   },
   
  mounted(){
-        this.invisible(); //method1 will execute at pageload
+        this.invisible(); //method will execute at pageload
   },
     methods: {
     visible () {
@@ -66,9 +65,7 @@ export default {
       const x = document.getElementById("sideNav");
         x.style.width= '0px';
       x.style.visibility = 'hidden';
-    
   }
-
 };
 
 </script>

@@ -12,10 +12,10 @@
         </div>
         <div v-loading="loading" >
             <el-table :data="usuarioFilter"  :default-sort = "{prop: 'id', order: 'descending'}" style="width: 100%"  height="500">
-                <el-table-column prop="idUsuario" label="Id"   width="100px"  sortable  fixed="left" ></el-table-column>
-                <el-table-column prop="nombre" label="Nombre"   width="130px"  ></el-table-column>
-                <el-table-column prop="apellido" label="Apellido"   width="130px"  ></el-table-column>
-                <el-table-column prop="especialidad" label="Especialidad" sortable  width="150px"  ></el-table-column>
+                <el-table-column prop="idUsuario" label="Id"   width="70px"  sortable   ></el-table-column>
+                <el-table-column prop="nombre" label="Nombre"   width="170px"  ></el-table-column>
+                <el-table-column prop="apellido" label="Apellido"   width="170px"  ></el-table-column>
+                <el-table-column prop="especialidad" label="Especialidad" sortable  width="170px"  ></el-table-column>
                 <el-table-column prop="tipo" label="Tipo"   width="100px"  ></el-table-column>
                 <el-table-column prop="email" label="Email"   width="220px"  ></el-table-column>
                 <el-table-column prop="contraseña" label="Contraseña" tyep="password"  width="100px" align="center" >
@@ -28,10 +28,14 @@
                         </el-popover>
                     </template>
                 </el-table-column>
-                <el-table-column  label="Operaciones"  fixed="right" width="200px"  >
-                    <template  slot-scope="scope">
-                        <a  :href="'#/usuario/createOrEdit/' + scope.row.idUsuario" > <el-button  size="mini"> <i class="el-icon-edit"> Editar </i> </el-button></a>
-                        <el-button id="deleteUser"  size="mini" type="danger" ><i class="el-icon-delete"> Eliminar </i> </el-button>
+                <el-table-column  label="Operaciones"  fixed="right" width="130px"  >
+                    <template  slot-scope="scope"> 
+                        <el-tooltip class="item" effect="dark" content="Editar" placement="left">
+                            <el-button  size="mini" v-on:click="$router.push(`/usuarioCreateOrEdit/` + scope.row.idUsuario)"> <i class="el-icon-edit">  </i> </el-button>
+                        </el-tooltip>
+                        <el-tooltip class="item" effect="dark" content="Eliminar" placement="right">
+                            <el-button id="deleteUser"  size="mini" type="danger" v-on:click="delete1" title=""><i class="el-icon-delete">  </i> </el-button>
+                        </el-tooltip>
                     </template>
                 </el-table-column>
             </el-table>
@@ -40,7 +44,6 @@
 </template>
 
     <script>
-    import { Input as ElInput } from 'element-ui';
 
     export default {
     name: "UsuarioIndex",
@@ -48,7 +51,6 @@
         return {
         loading: false,
         usuarios: [],
-        amor:[],
         busqueda:""
         };
     },
@@ -80,7 +82,15 @@
             self.usuarios = r.data;
             })
             .catch(r => {});
+        },
+        delete1() {
+          let confirmacion = confirm("Seguro que desea Eliminar este usuario?");
+          if(confirmacion == true){
+                alert("Se fue.");
+          }else{
+              alert("Se quedo.");
+          }
         }
-    }
+     }
     };
     </script>
