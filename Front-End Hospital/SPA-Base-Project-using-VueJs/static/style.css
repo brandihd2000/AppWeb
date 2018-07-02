@@ -15,9 +15,15 @@ body {
 }
 .el-footer{
 
-
 }
 
+.busquedaInput {
+  width: 250px;
+  float:right;
+}
 
-
+.tituloLista{
+  width: 200px;
+  float:left;
+}
 

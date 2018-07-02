@@ -1,23 +1,38 @@
 <template>
     <div>
-        <h2>Usuarios</h2>
-        <div v-loading="loading">
-            <el-table :data="usuarios" :default-sort = "{prop: 'id', order: 'descending'}" style="width: 100%"  height="500">
-                <el-table-column prop="idUsuario" label="Id"   width="100px"  sortable  fixed ></el-table-column>
+        <div class="tituloLista">
+             <h2>Usuarios</h2>
+        </div>
+        <div class="busquedaInput">
+            <el-input  placeholder="Buscar Usuario" v-model="busqueda" clearable > 
+                <i slot="prefix" class=" el-input__icon el-icon-search"> </i> 
+                <i slot="suffix"  class="el-input__icon el-icon-circle-close el-input__clear"
+                @click="busqueda = ''"  v-if="busqueda !== ''"></i>
+            </el-input>
+        </div>
+        <div v-loading="loading" >
+            <el-table :data="usuarioFilter"  :default-sort = "{prop: 'id', order: 'descending'}" style="width: 100%"  height="500">
+                <el-table-column prop="idUsuario" label="Id"   width="100px"  sortable  fixed="left" ></el-table-column>
                 <el-table-column prop="nombre" label="Nombre"   width="130px"  ></el-table-column>
                 <el-table-column prop="apellido" label="Apellido"   width="130px"  ></el-table-column>
                 <el-table-column prop="especialidad" label="Especialidad" sortable  width="150px"  ></el-table-column>
-                <el-table-column prop="tipo" label="Tipo"   width="130px"  ></el-table-column>
-                <el-table-column prop="email" label="Email"   width="180px"  ></el-table-column>
-                <el-table-column prop="contraseña" label="Contraseña"   width="130px"  ></el-table-column>
-                <el-table-column  label="Operations">
-                <template slot-scope="scope">
-                   
-                    <router-link  class="button" tag="button">Ver</router-link>
-                    <el-button  size="mini" type="danger"> <a >Borrar</a></el-button>
-                    
-                    <a :href="'#/usuario/createOrEdit/' + scope.row.idUsuario" > <el-button  size="mini" >Ver</el-button></a>
-                </template>
+                <el-table-column prop="tipo" label="Tipo"   width="100px"  ></el-table-column>
+                <el-table-column prop="email" label="Email"   width="220px"  ></el-table-column>
+                <el-table-column prop="contraseña" label="Contraseña" tyep="password"  width="100px" align="center" >
+                    <template slot-scope="scope">
+                        <el-popover trigger="hover" placement="top">
+                            <p> {{ scope.row.contraseña }}</p>
+                                <div slot="reference" class="name-wrapper">
+                                    <el-tag size="medium"> <i class="el-icon-view"> </i></el-tag>
+                                </div>
+                        </el-popover>
+                    </template>
+                </el-table-column>
+                <el-table-column  label="Operaciones"  fixed="right" width="200px"  >
+                    <template  slot-scope="scope">
+                        <a  :href="'#/usuario/createOrEdit/' + scope.row.idUsuario" > <el-button  size="mini"> <i class="el-icon-edit"> Editar </i> </el-button></a>
+                        <el-button id="deleteUser"  size="mini" type="danger" ><i class="el-icon-delete"> Eliminar </i> </el-button>
+                    </template>
                 </el-table-column>
             </el-table>
         </div>
@@ -25,13 +40,29 @@
 </template>
 
     <script>
+    import { Input as ElInput } from 'element-ui';
+
     export default {
     name: "UsuarioIndex",
     data() {
         return {
         loading: false,
-        usuarios: []
+        usuarios: [],
+        amor:[],
+        busqueda:""
         };
+    },
+    computed:{
+        usuarioFilter: function() {
+            return this.usuarios.filter(el => {
+                return el.idUsuario.toString().toLowerCase().match(this.busqueda.toLowerCase()) ||
+                el.nombre.toString().toLowerCase().match(this.busqueda.toLowerCase()) ||
+                el.apellido.toString().toLowerCase().match(this.busqueda.toLowerCase()) || 
+                el.especialidad.toString().toLowerCase().match(this.busqueda.toLowerCase()) || 
+                el.tipo.toString().toLowerCase().match(this.busqueda.toLowerCase()) || 
+                el.email.toString().toLowerCase().match(this.busqueda.toLowerCase());
+                });
+         }
     },
     created() {
         let self = this;
