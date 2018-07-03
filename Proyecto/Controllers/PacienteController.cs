@@ -11,21 +11,20 @@ namespace Proyecto_Web.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]/[action]")]
-    public class UsuarioController : Controller
+    public class PacienteController : Controller
     {
+        private readonly IPacienteServices _pacienteServices;
 
-        private readonly IUsuarioServices _usuarioServices;
-
-        public UsuarioController(IUsuarioServices usuarioServices)
+        public PacienteController(IPacienteServices pacienteServices)
         {
-            _usuarioServices = usuarioServices;
+            _pacienteServices = pacienteServices;
         }
 
         // GET api/values
         [HttpGet]
         public IActionResult Get()
         {
-            var result = _usuarioServices.GetAll();
+            var result = _pacienteServices.GetAll();
 
             if (!result.Any())
             {
@@ -37,14 +36,14 @@ namespace Proyecto_Web.Controllers
             }
         }
 
-       
+
         // GET api/values/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var result = _usuarioServices.Get(id);
+            var result = _pacienteServices.Get(id);
 
-            if (result.idUsuario == 0) 
+            if (result.idPaciente == 0)
             {
                 return NotFound();
             }
@@ -56,9 +55,9 @@ namespace Proyecto_Web.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Add([FromBody]Usuario Model)
+        public IActionResult Add([FromBody]Paciente Model)
         {
-            var result = _usuarioServices.Add(Model);
+            var result = _pacienteServices.Add(Model);
 
             if (!result)
             {
@@ -69,13 +68,13 @@ namespace Proyecto_Web.Controllers
                 return Json("Agregado correctamente");
             }
 
-         }
+        }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id,[FromBody]Usuario Model)
+        public IActionResult Update(int id, [FromBody]Paciente Model)
         {
-            Model.idUsuario = id;
-            var result = _usuarioServices.Update(Model);
+            Model.idPaciente = id;
+            var result = _pacienteServices.Update(Model);
 
             if (!result)
             {
@@ -85,13 +84,13 @@ namespace Proyecto_Web.Controllers
             {
                 return Json("actualizado correctamente");
             }
-  }
+        }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
 
-            var result = _usuarioServices.Delete(id);
+            var result = _pacienteServices.Delete(id);
 
             if (!result)
             {
@@ -104,6 +103,5 @@ namespace Proyecto_Web.Controllers
 
 
         }
-
     }
 }
