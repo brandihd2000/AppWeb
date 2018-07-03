@@ -35,6 +35,10 @@ namespace Proyecto
 
             //Mis servicios
             services.AddTransient<IUsuarioServices, UsuarioServices>();
+            services.AddTransient<IPacienteServices, PacienteServices>();
+            services.AddTransient<IObservacionesServices, ObservacionesServices>();
+            services.AddTransient<IDiagnosticoServices, DiagnosticoServices>();
+            services.AddTransient<ITratamientoServices, TratamientoServices>();
 
 
             services.AddMvc();

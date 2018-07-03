@@ -3576,24 +3576,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\nel_a\\.nuget\\packages\\": {},
+    "C:\\Users\\brand\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Persistence\\Persistence.csproj",
+      "projectUniqueName": "C:\\Proyecto\\AppWeb\\Persistence\\Persistence.csproj",
       "projectName": "Persistence",
-      "projectPath": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Persistence\\Persistence.csproj",
-      "packagesPath": "C:\\Users\\nel_a\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Persistence\\obj\\",
+      "projectPath": "C:\\Proyecto\\AppWeb\\Persistence\\Persistence.csproj",
+      "packagesPath": "C:\\Users\\brand\\.nuget\\packages\\",
+      "outputPath": "C:\\Proyecto\\AppWeb\\Persistence\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\nel_a\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\brand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
@@ -3605,8 +3608,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Models\\Models.csproj"
+            "C:\\Proyecto\\AppWeb\\Models\\Models.csproj": {
+              "projectPath": "C:\\Proyecto\\AppWeb\\Models\\Models.csproj"
             }
           }
         }
