@@ -17,7 +17,7 @@ const routes = [
   { path: '/example/:id', name: 'ExampleView', component: ExampleView },
 
   { path: '/usuario', name: 'UsuarioIndex', component: UsuarioIndex },
-  { path: '/usuario/:id', name: 'UsuarioCreateOrEdit', component: UsuarioCreateOrEdit },
+  { path: '/usuarioCreateOrEdit/:id', name: 'UsuarioCreateOrEdit', component: UsuarioCreateOrEdit },
 
 ]
 

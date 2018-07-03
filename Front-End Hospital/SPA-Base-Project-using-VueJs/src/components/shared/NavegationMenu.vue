@@ -43,7 +43,7 @@ export default {
         icon: "user",
         text: "Usuario",
         children: [
-          { icon: "plus", text: "Agregar", path: "/usuario" },
+          { icon: "plus", text: "Agregar", path: "/usuarioCreateOrEdit/0" },
           { icon: "list", text: "Listar", path: "/usuario" }
         ]
       }
