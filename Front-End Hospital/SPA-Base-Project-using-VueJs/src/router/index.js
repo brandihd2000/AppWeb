@@ -8,6 +8,8 @@ import ExampleView from '@/components/example/View'
 import UsuarioIndex from '@/components/usuario/Index'
 import UsuarioCreateOrEdit from '@/components/usuario/CreateOrEdit'
 
+import PacienteCreateOrEdidt from '@/components/paciente/CreateOrEdit'
+
 
 Vue.use(Router)
 
@@ -17,7 +19,9 @@ const routes = [
   { path: '/example/:id', name: 'ExampleView', component: ExampleView },
 
   { path: '/usuario', name: 'UsuarioIndex', component: UsuarioIndex },
-  { path: '/usuarioCreateOrEdit/:id', name: 'UsuarioCreateOrEdit', component: UsuarioCreateOrEdit },
+  { path: '/usuario/:id', name: 'UsuarioCreateOrEdit', component: UsuarioCreateOrEdit },
+
+  {path:'/paciente',name:'CreateOrEdit',component:PacienteCreateOrEdidt},
 
 ]
 

@@ -43,8 +43,16 @@ export default {
         icon: "user",
         text: "Usuario",
         children: [
-          { icon: "plus", text: "Agregar", path: "/usuarioCreateOrEdit/0" },
+          { icon: "plus", text: "Agregar", path: "/usuario" },
           { icon: "list", text: "Listar", path: "/usuario" }
+        ]
+      },
+      {
+        icon: "user",
+        text: "Paciente",
+        children: [
+          { icon: "plus", text: "Agregar", path: "/paciente" },
+          { icon: "list", text: "Listar", path: "/paciente" }
         ]
       }
     ]
