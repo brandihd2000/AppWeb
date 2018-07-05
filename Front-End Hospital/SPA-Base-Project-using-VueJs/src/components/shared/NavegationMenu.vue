@@ -51,8 +51,8 @@ export default {
         icon: "user",
         text: "Paciente",
         children: [
-          { icon: "plus", text: "Agregar", path: "/paciente" },
-          { icon: "list", text: "Listar", path: "/paciente" }
+          { icon: "plus", text: "Agregar", path: "/pacienteCE" },
+          { icon: "list", text: "Listar", path: "/pacienteLI" }
         ]
       }
     ]
