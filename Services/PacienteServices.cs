@@ -13,6 +13,8 @@ namespace Services
         IEnumerable<Paciente> GetAll();
         Paciente Get(int id);
         bool Add(Paciente model);
+        IEnumerable<Paciente> GetFiltro(string filtro);
+      //  bool Guardar(ObservacionesPaciente observacionesPaciente);
         bool Update(Paciente paciente);
         bool Delete(int id);
     }
@@ -62,6 +64,59 @@ namespace Services
             }
             return result;
         }
+
+        public IEnumerable<Paciente> GetFiltro(string filtro)
+        {
+            var result = new List<Paciente>();
+            try
+            {
+
+                result = _applicationDbContext.Paciente.Where(p => (p.nombre.Contains(filtro) || p.apellido.Contains(filtro) || p.cedula.Contains(filtro))).ToList();
+
+
+
+            }
+            catch (Exception)
+            {
+
+
+            }
+            return result;
+        }
+
+
+
+        //Agregar un paciente y su observacion 
+        /*  public bool Guardar(ObservacionesPaciente observacionesPaciente)
+          {
+
+              try
+              {
+
+
+
+                  _applicationDbContext.Add(observacionesPaciente.paciente);
+                  _applicationDbContext.SaveChanges();
+
+                  observacionesPaciente.observaciones.idPaciente = 5;
+
+                  _applicationDbContext.Add(observacionesPaciente.observaciones);
+                 _applicationDbContext.SaveChanges();
+
+
+              }
+              catch (Exception)
+              {
+
+                  return false;
+              }
+
+     return true;
+
+
+          }
+
+      */
 
         //Agregar un nuevo paciente
         public bool Add(Paciente model)

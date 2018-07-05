@@ -54,6 +54,21 @@ namespace Proyecto_Web.Controllers
             }
         }
 
+        // GET api/values/5
+        [HttpGet("{filtro}")]
+        public IActionResult GetFiltro(string filtro)
+        {
+            var result = _usuarioServices.GetFiltro(filtro);
+
+            if (!result.Any())
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(result);
+            }
+        }
         // POST api/values
         [HttpPost]
         public IActionResult Add([FromBody]Usuario Model)
@@ -70,6 +85,8 @@ namespace Proyecto_Web.Controllers
             }
 
          }
+
+       
 
         [HttpPut("{id}")]
         public IActionResult Update(int id,[FromBody]Usuario Model)
