@@ -12,6 +12,7 @@ namespace Services
     {
         IEnumerable<Usuario> GetAll();
         Usuario Get(int id);
+        IEnumerable<Usuario> GetFiltro(string filtro);
         bool Add(Usuario model);
         bool Update(Usuario usuario);
         bool Delete(int id);
@@ -63,8 +64,29 @@ namespace Services
             return result;
         }
 
-        //Agregar un nuevo usuario
-        public bool Add(Usuario model)
+        public IEnumerable<Usuario> GetFiltro(string filtro)
+        {
+            var result = new List<Usuario>();
+            try
+            {
+
+                result = _applicationDbContext.Usuario.Where(u => (u.nombre.Contains(filtro) || u.apellido.Contains(filtro) || u.email.Contains(filtro))).ToList();
+
+
+
+            }
+            catch (Exception)
+            {
+
+
+            }
+            return result;
+        }
+
+    
+
+    //Agregar un nuevo usuario
+    public bool Add(Usuario model)
         {
             try
             {

@@ -53,6 +53,50 @@ namespace Proyecto_Web.Controllers
             }
         }
 
+        // GET api/values/5
+        [HttpGet("{filtro}")]
+        public IActionResult GetFiltro(string filtro)
+        {
+            var result = _pacienteServices.GetFiltro(filtro);
+
+            if (!result.Any())
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(result);
+            }
+        }
+
+        /* [HttpPost]
+         public IActionResult guardar( ObservacionesPaciente observacionesPaciente)
+         {
+
+
+             observacionesPaciente.paciente.nombre = "sadad";
+
+             observacionesPaciente.observaciones.idPaciente = 14;
+             observacionesPaciente.observaciones.enfermedades = "asds";
+             observacionesPaciente.observaciones.medicamentos = "asds";
+             observacionesPaciente.observaciones.alergias = "asds";
+             observacionesPaciente.observaciones.discapacidad = "asds";
+
+             var result = _pacienteServices.Guardar(observacionesPaciente);
+
+             if (result == false)
+             {
+                 return Json("No Agregado" ) ;
+             }
+             else
+             {
+                 return Json("Agregado");
+             }
+
+         }
+         */
+
+
         // POST api/values
         [HttpPost]
         public IActionResult Add([FromBody]Paciente Model)
