@@ -13303,23 +13303,42 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\nel_a\\.nuget\\packages\\": {},
+=======
+    "C:\\Users\\Henry\\.nuget\\packages\\": {},
+>>>>>>> 9f102adfd9dd28bf43b8d6decfdc5398148c0451
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Proyecto\\Proyecto Web.csproj",
       "projectName": "Proyecto Web",
       "projectPath": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Proyecto\\Proyecto Web.csproj",
       "packagesPath": "C:\\Users\\nel_a\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Proyecto\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Proyecto\\Proyecto Web.csproj",
+      "projectName": "Proyecto Web",
+      "projectPath": "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Proyecto\\Proyecto Web.csproj",
+      "packagesPath": "C:\\Users\\Henry\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Proyecto\\obj\\",
+>>>>>>> 9f102adfd9dd28bf43b8d6decfdc5398148c0451
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\nel_a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\Henry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 9f102adfd9dd28bf43b8d6decfdc5398148c0451
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13332,11 +13351,19 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
+<<<<<<< HEAD
             "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Persistence\\Persistence.csproj": {
               "projectPath": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Persistence\\Persistence.csproj"
             },
             "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Services\\Services.csproj": {
               "projectPath": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Services\\Services.csproj"
+=======
+            "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Services\\Services.csproj": {
+              "projectPath": "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Services\\Services.csproj"
+            },
+            "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Persistence\\Persistence.csproj": {
+              "projectPath": "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Persistence\\Persistence.csproj"
+>>>>>>> 9f102adfd9dd28bf43b8d6decfdc5398148c0451
             }
           }
         }
