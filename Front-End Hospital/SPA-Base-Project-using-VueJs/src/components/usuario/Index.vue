@@ -3,7 +3,13 @@
         <div class="tituloLista">
              <h2>Usuarios</h2>
         </div>
+      
         <div class="busquedaInput">
+            <el-tooltip class="item" effect="dark" content="Agregar Usuarios" placement="right">
+                <el-button id="deleteUser" icon="el-icon-plus" size="large" type="text" v-on:click="$router.push(`/usuario/0`)" > Agregar Usuarios </el-button>
+            </el-tooltip>
+        </div>
+          <div class="busquedaInput">
             <el-input  placeholder="Buscar Usuario" v-model="busqueda" clearable > 
                 <i slot="prefix" class=" el-input__icon el-icon-search"> </i> 
                 <i slot="suffix"  class="el-input__icon el-icon-circle-close el-input__clear"
@@ -74,24 +80,54 @@
         getAll() {
         let self = this;
         self.loading = true;
-
         self.$store.state.services.usuarioService
             .getAll()
             .then(r => {
             self.loading = false;
             self.usuarios = r.data;
             })
-            .catch(r => {});
+            .catch(r => {    
+                self.$message({  
+                message: "Ocurrio un error inesperado, contactar soporte.",
+                type: "error"
+                });
+            });
         },
-            remove(id) {
-            let self = this;
-              self.$store.state.services.usuarioService
+        
+        remove(id) {
+        let self = this;
+            this.$confirm('Este usuario sera eliminado. Continuar?', 'Advertencia', {
+            confirmButtonText: 'Si',
+            cancelButtonText: 'Cancelar',
+            type: 'warning'
+            }).then(() => {
+            _remove();
+            this.$message({ 
+                type: 'success',
+                message: 'Usuario Eliminado!'
+                });
+           
+            }).catch(() => {
+            this.$message({
+                type: 'info',
+                message: 'Operacion Cancelada!'
+                });          
+            });
+              function _remove() {
+                 self.$store.state.services.usuarioService
                 .remove(id)
                 .then(r => {
-                    self.loading = false;
-                    self.getAll();
-           })
-        }
+                self.loading = false;
+                self.getAll();
+                })
+                .catch(r => {
+                    self.$message({
+                    message: "Ocurrio un error inesperado, contactar soporte.",
+                    type: "error"
+                    });
+                });
+            }
+         }
      }
     }
     </script>

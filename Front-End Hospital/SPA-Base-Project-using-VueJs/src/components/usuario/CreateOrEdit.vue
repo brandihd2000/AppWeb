@@ -5,6 +5,7 @@
  <el-row :gutter="20">
     <el-col :span="14" :offset="5">  
           <h2>{{titutlo}}</h2>
+          
             <el-form  inline="true" :model="usuario" :rules="rules" label-position="top" ref="usuario"  class="formStylebox"  >
                 <el-form-item label="Nombre" class="formStyle" prop="nombre">
                     <el-input v-model="usuario.nombre" placeholder="Nombre" ></el-input>
@@ -33,13 +34,18 @@
                     <el-input type="password" v-model="usuario.contraseña" placeholder="Contraseña"></el-input>
                 </el-form-item>
                 <el-form-item label="Confirmar Contraseña" class="formStyle" prop="contraseñaConfirm">
-                    <el-input type="password" v-model="contraseñaConfirm" v-on:load="confirmar"  placeholder="Confirmar"></el-input>
+                    <el-input type="password" v-model="contraseñaConfirm"   placeholder="Confirmar"></el-input>
                 </el-form-item>
                 <br>
                 <el-form-item >
                     <el-button type="primary" v-on:click="save">Guardar</el-button>
+                    <el-button v-on:click="reiniciar">Reiniciar</el-button>
+                </el-form-item>
+                <el-form-item class="busquedaInput" >
+                    <el-button size="medium"  @click="$router.push(`/usuario`)" type="text">Volver a la Lista<i class="rotateIcon el-icon-back"> </i></el-button>
                 </el-form-item>
             </el-form>
+   
     </el-col>
 </el-row>
 
@@ -83,7 +89,8 @@ export default {
                     {type:'email',message:'Por favor introducit email correctamente.',trigger: 'blur,change'}
                 ],
                  contraseña:[
-                    {required:true, message:'Por favor introduzca una contraseña.', trigger:'blur'}
+                    {required:true, message:'Por favor introduzca una contraseña.', trigger:'blur'},
+                    {min:8,max:25, message:'La contraseña debe tener mas de 8 caracteres.', trigger:'blur'}
                 ],
             }
         };
@@ -91,14 +98,40 @@ export default {
     computed:{
         titutlo: function(){
             return this.$route.params.id == 0 ? "Agregar Usuario" : "Editar Usuario";
+        },
+        emailFilter: function() {
+        return this.usuarios.filter(el => {
+            return el.email.toString().toLowerCase().match(this.busqueda.toLowerCase());
+            });
         }
     },
     created(){
         let self = this;
         self.get(self.$route.params.id);
+        self.getAll();
     },
     methods:{
-       
+        reiniciar(){
+            let self = this;
+            self.$refs['usuario'].resetFields();
+            self.contraseñaConfirm ='';
+        },
+         getAll() {
+        let self = this;
+        self.loading = true;
+        self.$store.state.services.usuarioService
+            .getAll()
+            .then(r => {
+            self.loading = false;
+            self.usuarios = r.data;
+            })
+            .catch(r => {    
+                self.$message({  
+                message: "Ocurrio un error inesperado, contactar soporte.",
+                type: "error"
+                });
+            });
+        },
         get(id){    
             if(id > 0){
             if(id == undefined) return;
@@ -115,6 +148,7 @@ export default {
                 self.usuario.tipo =  r.data.tipo;
                 self.usuario.email =  r.data.email;
                 self.usuario.contraseña =  r.data.contraseña;
+                self.contraseñaConfirm = r.data.contraseña;
             })
             .catch(r => {
               self.$message({
@@ -126,41 +160,62 @@ export default {
         },
         save(){
             let self = this;
+          
                 this.$refs["usuario"].validate((valid) => {
-            if (valid) {
-              
-                self.loading = true;
-                if(self.$route.params.id > 0){
-                    self.$store.state.services.usuarioService
-                    .update(self.$route.params.id,self.usuario)
-                    .then( r => {
-                            self.loading = false;
-                            self.$router.push('/usuario');
-                    })
-                    .catch(r => {
-                        self.$message({  
-                            message: "Ocurrio un error inesperado, contactar soporte.",
-                            type: "error"
+            if (valid && self.usuario.contraseña == self.contraseñaConfirm && self.emailFilter == null) {
+               
+                    self.loading = true;
+                    if(self.$route.params.id > 0){
+                        self.$store.state.services.usuarioService
+                        .update(self.$route.params.id,self.usuario)
+                        .then( r => {
+                                self.loading = false;
+                                self.$router.push('/usuario');
+                                  self.$message({  
+                                message: "Usuario Editado!",
+                                type: "success"
+                            });
+                        })
+                        .catch(r => {
+                            self.$message({  
+                                message: "Ocurrio un error inesperado, contactar soporte.",
+                                type: "error"
+                            });
                         });
-                    });
-                }else{
-                    self.$store.state.services.usuarioService
-                    .add(self.usuario)
-                    .then( r => {
-                            self.loading = false;
-                            self.$router.push('/usuario');
-                    })
-                    .catch(r => {
-                        self.$message({  
-                            message: "Ocurrio un error inesperado, contactar soporte.",
-                            type: "error"
+                    }else{
+                        self.$store.state.services.usuarioService
+                        .add(self.usuario)
+                        .then( r => {
+                                self.loading = false;
+                                self.$refs['usuario'].resetFields();
+                                self.contraseñaConfirm ='';
+                                self.$message({type: 'success',message: 'Usuario Creado!'});
+                                self.$confirm('Desea crear otro usuario?', 'Usuario Creado', {
+                                confirmButtonText: 'Si',
+                                cancelButtonText: 'No',
+                                type: 'info'
+                                }).then(() => {
+                                    self.$router.push('/usuario/0');
+                                }).catch(() => { 
+                                    self.$router.push('/usuario');
+                                });
+                        })
+                        .catch(r => {
+                            self.$message({  
+                                message: "Ocurrio un error inesperado, contactar soporte.",
+                                type: "error"
+                            });
                         });
-                    });
-                 }
-            
-            }
-            });
-        }
-   }
+                    }
+              }else{
+                      this.$message({
+            type: 'warning',
+            message: 'Las contraseñas deben coincidir!'
+          });
+              }
+          });
+             
+       }
+    }
 }
 </script>

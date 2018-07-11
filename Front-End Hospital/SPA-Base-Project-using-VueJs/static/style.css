@@ -20,6 +20,7 @@ body {
 .busquedaInput {
   max-width: 250px;
   float:right;
+  padding: 5px;
 }
 
 .tituloLista{
@@ -50,4 +51,7 @@ and (max-device-width : 480px) {
     padding:2%; 
     max-width: 700px;
   }
+}
+.rotateIcon {
+  transform: rotate(180deg); 
 }
