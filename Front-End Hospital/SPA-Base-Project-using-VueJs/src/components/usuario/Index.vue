@@ -40,6 +40,7 @@
                 </el-table-column>
             </el-table>
         </div>
+        <pre>{{$data}}</pre>
     </div>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
   <div>
       <div class="busquedaInput">
-            <el-input  placeholder="Buscar Usuario"  > 
-                <i slot="prefix" class=" el-input__icon el-icon-search"> </i> 
+            <el-input  placeholder="Buscar Paciente" v-model="busqueda" clearble  > 
+                <i slot="prefix" class=" el-input__icon el-icon-search"   > </i> 
                 <i slot="suffix"  class="el-input__icon el-icon-circle-close el-input__clear"
                 @click="busqueda = ''"  v-if="busqueda !== ''"></i>
             </el-input>
@@ -10,7 +10,7 @@
       <!-- DIV DE LA TABLA ↓↓↓↓↓↓ -->
       <div v-loading="loading" >
           <el-table 
-             :data="pacientes"
+             :data="pacienteFilter"
              :row-class-name="tableRowClassName" >
               <el-table-column prop="nombre" label="Nombre" >
 
@@ -55,6 +55,19 @@ export default {
       return{
           loading : false,
           pacientes: [],
+          busqueda: ""
+      };
+  },
+
+  computed:{
+      pacienteFilter:function(){
+          return this.pacientes.filter(el=>{
+              return el.nombre.toString().toLowerCase().match(this.busqueda.toLowerCase()) ||
+              el.apellido.toString().toLowerCase().match(this.busqueda.toString().toLowerCase());
+            
+              
+          });
+        
       }
   },
   methods:{
