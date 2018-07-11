@@ -31,10 +31,10 @@
                 <el-table-column  label="Operaciones"  fixed="right" width="130px"  >
                     <template  slot-scope="scope"> 
                         <el-tooltip class="item" effect="dark" content="Editar" placement="left">
-                            <el-button  size="mini" v-on:click="$router.push(`/usuarioCreateOrEdit/` + scope.row.idUsuario)"> <i class="el-icon-edit">  </i> </el-button>
+                            <el-button  size="mini" v-on:click="$router.push(`/usuario/` + scope.row.idUsuario)"> <i class="el-icon-edit">  </i> </el-button>
                         </el-tooltip>
                         <el-tooltip class="item" effect="dark" content="Eliminar" placement="right">
-                            <el-button id="deleteUser"  size="mini" type="danger" v-on:click="delete1" title=""><i class="el-icon-delete">  </i> </el-button>
+                            <el-button id="deleteUser"  size="mini" type="danger" v-on:click="remove(scope.row.idUsuario)" title=""><i class="el-icon-delete">  </i> </el-button>
                         </el-tooltip>
                     </template>
                 </el-table-column>
@@ -83,14 +83,15 @@
             })
             .catch(r => {});
         },
-        delete1() {
-          let confirmacion = confirm("Seguro que desea Eliminar este usuario?");
-          if(confirmacion == true){
-                alert("Se fue.");
-          }else{
-              alert("Se quedo.");
-          }
+            remove(id) {
+            let self = this;
+              self.$store.state.services.usuarioService
+                .remove(id)
+                .then(r => {
+                    self.loading = false;
+                    self.getAll();
+           })
         }
      }
-    };
+    }
     </script>
