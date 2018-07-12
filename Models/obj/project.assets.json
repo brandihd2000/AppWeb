@@ -664,27 +664,43 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\brand\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+<<<<<<< HEAD
+    "C:\\Users\\nel_a\\.nuget\\packages\\": {},
+=======
+    "C:\\Users\\Henry\\.nuget\\packages\\": {},
+>>>>>>> 9f102adfd9dd28bf43b8d6decfdc5398148c0451
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Proyecto\\AppWeb\\Models\\Models.csproj",
+<<<<<<< HEAD
+      "projectUniqueName": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Models\\Models.csproj",
       "projectName": "Models",
-      "projectPath": "C:\\Proyecto\\AppWeb\\Models\\Models.csproj",
-      "packagesPath": "C:\\Users\\brand\\.nuget\\packages\\",
-      "outputPath": "C:\\Proyecto\\AppWeb\\Models\\obj\\",
+      "projectPath": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Models\\Models.csproj",
+      "packagesPath": "C:\\Users\\nel_a\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Models\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Models\\Models.csproj",
+      "projectName": "Models",
+      "projectPath": "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Models\\Models.csproj",
+      "packagesPath": "C:\\Users\\Henry\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Models\\obj\\",
+>>>>>>> 9f102adfd9dd28bf43b8d6decfdc5398148c0451
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\brand\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+<<<<<<< HEAD
+        "C:\\Users\\nel_a\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\Henry\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 9f102adfd9dd28bf43b8d6decfdc5398148c0451
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
