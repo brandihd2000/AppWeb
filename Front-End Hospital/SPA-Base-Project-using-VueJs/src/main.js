@@ -19,6 +19,11 @@ import store from './store/index'
 // Our Style
 import '../static/style.css'
 
+//sesiones
+import VueSession from 'vue-session'
+
+Vue.use(VueSession)
+
 Vue.config.productionTip = false
 
 Vue.use(Element, {

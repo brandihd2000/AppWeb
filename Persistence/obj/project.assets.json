@@ -1583,10 +1583,10 @@
       "path": "microsoft.netcore.platforms/2.0.0",
       "files": [
         "LICENSE.TXT",
-        "Microsoft.NETCore.Platforms.2.0.0.nupkg.sha512",
-        "Microsoft.NETCore.Platforms.nuspec",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/netstandard1.0/_._",
+        "microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+        "microsoft.netcore.platforms.nuspec",
         "runtime.json",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -3576,42 +3576,23 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\nel_a\\.nuget\\packages\\": {},
-=======
-    "C:\\Users\\Henry\\.nuget\\packages\\": {},
->>>>>>> 9f102adfd9dd28bf43b8d6decfdc5398148c0451
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Persistence\\Persistence.csproj",
       "projectName": "Persistence",
       "projectPath": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Persistence\\Persistence.csproj",
       "packagesPath": "C:\\Users\\nel_a\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Persistence\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Persistence\\Persistence.csproj",
-      "projectName": "Persistence",
-      "projectPath": "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Persistence\\Persistence.csproj",
-      "packagesPath": "C:\\Users\\Henry\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Persistence\\obj\\",
->>>>>>> 9f102adfd9dd28bf43b8d6decfdc5398148c0451
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\nel_a\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\Henry\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 9f102adfd9dd28bf43b8d6decfdc5398148c0451
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3624,13 +3605,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-<<<<<<< HEAD
             "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Models\\Models.csproj": {
               "projectPath": "C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Models\\Models.csproj"
-=======
-            "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Models\\Models.csproj": {
-              "projectPath": "C:\\Users\\Henry\\Documents\\GitHub\\AppWeb\\Models\\Models.csproj"
->>>>>>> 9f102adfd9dd28bf43b8d6decfdc5398148c0451
             }
           }
         }
@@ -3670,5 +3646,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\nel_a\\Source\\Repos\\AppWeb\\Persistence\\obj\\Persistence.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

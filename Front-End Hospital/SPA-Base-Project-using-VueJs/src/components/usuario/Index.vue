@@ -46,7 +46,6 @@
                 </el-table-column>
             </el-table>
         </div>
-        <pre>{{$data}}</pre>
     </div>
 </template>
 
@@ -63,19 +62,33 @@
     },
     computed:{
         usuarioFilter: function() {
-            return this.usuarios.filter(el => {
-                return el.idUsuario.toString().toLowerCase().match(this.busqueda.toLowerCase()) ||
-                el.nombre.toString().toLowerCase().match(this.busqueda.toLowerCase()) ||
-                el.apellido.toString().toLowerCase().match(this.busqueda.toLowerCase()) || 
-                el.especialidad.toString().toLowerCase().match(this.busqueda.toLowerCase()) || 
-                el.tipo.toString().toLowerCase().match(this.busqueda.toLowerCase()) || 
-                el.email.toString().toLowerCase().match(this.busqueda.toLowerCase());
+            let self = this;
+            return self.usuarios.filter(el => {
+                return el.idUsuario.toString().toLowerCase().match(self.busqueda.toLowerCase()) ||
+                el.nombre.toString().toLowerCase().match(self.busqueda.toLowerCase()) ||
+                el.apellido.toString().toLowerCase().match(self.busqueda.toLowerCase()) || 
+                el.especialidad.toString().toLowerCase().match(self.busqueda.toLowerCase()) || 
+                el.tipo.toString().toLowerCase().match(self.busqueda.toLowerCase()) || 
+                el.email.toString().toLowerCase().match(self.busqueda.toLowerCase());
                 });
+         }
+    ,
+     acceso: function () {
+        let self = this;
+        if (!self.$session.exists() || self.$session.get('tipoDeAcceso') != "4") {
+            self.$router.push('/')
+        }//else if(Date.now() > self.$session.get('finalDeSesion')){
+        //     self.$session.clear();
+        //     self.$session.destroy();
+        //     self.$router.push(`/`);
+        //     self.$message({message: "Su sesión ha caducado.",type: "info" });
+        // }
          }
     },
     created() {
         let self = this;
         self.getAll();
+        self.acceso();
     },
     methods: {
         getAll() {
@@ -88,10 +101,7 @@
             self.usuarios = r.data;
             })
             .catch(r => {    
-                self.$message({  
-                message: "Ocurrio un error inesperado, contactar soporte.",
-                type: "error"
-                });
+                self.$message({message: "Ocurrio un error inesperado, contactar soporte.", type: "error"});
             });
         },
         

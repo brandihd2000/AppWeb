@@ -58,7 +58,6 @@ export default {
           busqueda: ""
       };
   },
-
   computed:{
       pacienteFilter:function(){
           return this.pacientes.filter(el=>{
@@ -68,10 +67,20 @@ export default {
               
           });
         
-      }
+      },
+      acceso: function () {
+        let self = this;
+        if (!self.$session.exists()) {
+            self.$router.push('/')
+            } 
+         }
   },
-  methods:{
-      
+    created() {
+        let self = this;
+        self.acceso();
+    },
+    methods:{
+        
         getAll() {
         let self = this;
         self.loading = true;

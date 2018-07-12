@@ -114,6 +114,18 @@ export default {
 
       };
   },
+  computed:{
+     acceso: function () {
+        let self = this;
+        if (!self.$session.exists()) {
+            self.$router.push('/')
+            } 
+         }
+    },
+    created() {
+        let self = this;
+        self.acceso();
+    },
     methods: {
       onSubmit() {
         console.log('submit!');

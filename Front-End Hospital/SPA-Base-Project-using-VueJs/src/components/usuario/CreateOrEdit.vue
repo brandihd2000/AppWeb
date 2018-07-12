@@ -19,10 +19,10 @@
                 </el-form-item>
                 <el-form-item label="Tipo" class="formStyle" prop="tipo">
                     <el-select v-model="usuario.tipo" class="formStyle" placeholder="Por favor Seleccione">
-                        <el-option label="Admin" value="admin"></el-option>
-                        <el-option label="Doctor/a" value="doctor"></el-option>
-                        <el-option label="Enfermero/a" value="enfermero"></el-option>
-                        <el-option label="Secretario/a" value="secretario"></el-option>
+                        <el-option label="Admin" value="4"></el-option>
+                        <el-option label="Doctor/a" value="3"></el-option>
+                        <el-option label="Enfermero/a" value="2"></el-option>
+                        <el-option label="Secretario/a" value="1"></el-option>
                     </el-select>
                 </el-form-item>
                 <br>
@@ -38,14 +38,13 @@
                 </el-form-item>
                 <br>
                 <el-form-item >
-                    <el-button type="primary" v-on:click="save">Guardar</el-button>
                     <el-button v-on:click="reiniciar">Reiniciar</el-button>
+                    <el-button type="primary" v-on:click="save">Guardar</el-button>
                 </el-form-item>
                 <el-form-item class="busquedaInput" >
                     <el-button size="medium"  @click="$router.push(`/usuario`)" type="text">Volver a la Lista<i class="rotateIcon el-icon-back"> </i></el-button>
                 </el-form-item>
             </el-form>
-   
     </el-col>
 </el-row>
 
@@ -85,8 +84,8 @@ export default {
                     {required:true, message:'Por favor eliga un tipo.', trigger:'blur'}
                 ],
                 email:[
-                    {required:true, message:'Por favor eliga un tipo.', trigger:'blur'},
-                    {type:'email',message:'Por favor introducit email correctamente.',trigger: 'blur,change'}
+                    {required:true, message:'Por favor introduzca un correo.', trigger:'blur'},
+                    {type:'email',message:'Por favor introducir correo correctamente.',trigger: 'blur,change'}
                 ],
                  contraseña:[
                     {required:true, message:'Por favor introduzca una contraseña.', trigger:'blur'},
@@ -100,15 +99,23 @@ export default {
             return this.$route.params.id == 0 ? "Agregar Usuario" : "Editar Usuario";
         },
         emailFilter: function() {
-        return this.usuarios.filter(el => {
-            return el.email.toString().toLowerCase().match(this.busqueda.toLowerCase());
+            let self = this;
+        return self.usuarios.filter(el => {
+            return el.email.toString().toLowerCase() == self.usuario.email.toLowerCase();
             });
+        },
+        acceso: function () {
+            let self = this;
+            if (!self.$session.exists() || self.$session.get('tipoDeAcceso') != "4") {
+                self.$router.push('/')
+             }
         }
     },
     created(){
         let self = this;
         self.get(self.$route.params.id);
         self.getAll();
+        self.acceso();
     },
     methods:{
         reiniciar(){
@@ -162,8 +169,8 @@ export default {
             let self = this;
           
                 this.$refs["usuario"].validate((valid) => {
-            if (valid && self.usuario.contraseña == self.contraseñaConfirm && self.emailFilter == null) {
-               
+            if (valid && self.usuario.contraseña == self.contraseñaConfirm) {
+               if(self.emailFilter.length < 1){
                     self.loading = true;
                     if(self.$route.params.id > 0){
                         self.$store.state.services.usuarioService
@@ -207,11 +214,17 @@ export default {
                             });
                         });
                     }
+               }else{
+                    self.$message({
+                    type: 'warning',
+                    message: 'Los correos deben ser unicos, cambielo por favor!'
+                });
+               }
               }else{
-                      this.$message({
-            type: 'warning',
-            message: 'Las contraseñas deben coincidir!'
-          });
+                    self.$message({
+                    type: 'warning',
+                    message: 'Las contraseñas deben coincidir!'
+                });
               }
           });
              

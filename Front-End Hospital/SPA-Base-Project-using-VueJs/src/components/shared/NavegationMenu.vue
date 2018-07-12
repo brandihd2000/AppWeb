@@ -1,7 +1,8 @@
 <template >
 <el-menu  default-active="0">
-    <template v-for="item, i in items">
-        <el-submenu :index="i.toString()" v-if="item.children !== undefined">
+
+    <template v-for="item, i in items" v-if="item.name <= getsession"  >
+        <el-submenu :index="i.toString()"  v-if="item.children !== undefined">
             <template slot="title">
                 <i :class="'fa fa-' + item.icon"></i>
                 <span>{{ item.text }}</span>
@@ -17,6 +18,8 @@
             <span>{{ item.text }}</span>
         </el-menu-item>
     </template>
+
+
 </el-menu>
 </template>
 
@@ -25,36 +28,20 @@ export default {
   name: "NavegationMenu",
   data: () => ({
     items: [
-      { icon: "dashboard", text: "Dashboard", path: "/" },
-      {
-        icon: "star",
-        text: "Ejemplo",
-        children: [{ icon: "list", text: "Listar", path: "/example" }]
-      },
-      {
-        icon: "wrench",
-        text: "Configuración",
-        children: [
-          { icon: "list", text: "Opción 1", path: "/configuration/opcion1" },
-          { icon: "list", text: "Opción 2", path: "/configuration/opcion2" }
+      { icon: "dashboard", name:"1", text: "Dashboard", path: "/" },
+      { icon: "user", name:"1" ,text: "Paciente",children: 
+        [
+            { icon: "plus", text: "Agregar", path: "/pacienteCE" },
+            { icon: "list", text: "Listar", path: "/pacienteLI" }
         ]
       },
-      {
-        icon: "user",
-        text: "Usuario",
-        children: [
+      { icon: "user",name:"4" ,text:"Usuario",children: 
+        [
           { icon: "plus", text: "Agregar", path: "/usuario/0" },
           { icon: "list", text: "Listar", path: "/usuario" }
         ]
       },
-      {
-        icon: "user",
-        text: "Paciente",
-        children: [
-          { icon: "plus", text: "Agregar", path: "/pacienteCE" },
-          { icon: "list", text: "Listar", path: "/pacienteLI" }
-        ]
-      }
+      { icon: "wrench", name:"1", text: "Configuración"} 
     ]
   }),
   methods: {
@@ -62,6 +49,12 @@ export default {
       if(path === undefined) return;
       this.$router.push(path);
     }
+  },
+  computed:{
+     getsession: function(){
+       let self = this;
+       return self.$session.get('tipoDeAcceso');
+     }
   }
 };
 
