@@ -4,7 +4,7 @@ class UsuarioService {
 
     constructor(axios) {
         this.axios = axios
-        this.baseUrl=("http://localhost:60863/api/usuario/");
+        this.baseUrl = ("http://localhost:60863/api/usuario/");
     }
 
     getAll(params) {
@@ -17,14 +17,14 @@ class UsuarioService {
         return self.axios.get(`${self.baseUrl}get/${id}`)
     }
 
-    add(model){
+    add(model) {
         let self = this;
-        return self.axios.post(`${self.baseUrl}add/`,model)
+        return self.axios.post(`${self.baseUrl}add/`, model)
     }
-    
-    update(id,model){
+
+    update(id, model) {
         let self = this;
-        return self.axios.put(`${self.baseUrl}update/${id}`,model)
+        return self.axios.put(`${self.baseUrl}update/${id}`, model)
     }
 
     remove(id) {

@@ -1,19 +1,19 @@
 <template >
 <el-menu  default-active="0">
 
-    <template v-for="item, i in items" v-if="item.name <= getsession"  >
-        <el-submenu :index="i.toString()"  v-if="item.children !== undefined">
+    <template v-for="(item, i) in items" v-if="item.name <= getsession"  >
+        <el-submenu :index="i.toString()"  :key='i' v-if="item.children !== undefined">
             <template slot="title">
                 <i :class="'fa fa-' + item.icon"></i>
                 <span>{{ item.text }}</span>
             </template>
             <el-menu-item-group title="Opciones">
-                <el-menu-item v-for="child, c in item.children" :index="(i.toString() + c)" @click="redirect(child.path)">
+                <el-menu-item v-for="(child, c) in item.children" :key='c' :index="(i.toString() + c)" @click="redirect(child.path)">
                     <i :class="'fa fa-' + child.icon"></i> <span>{{ child.text }}</span>
                 </el-menu-item>
             </el-menu-item-group>    
         </el-submenu>
-        <el-menu-item index="2" v-if="item.children === undefined" @click="redirect(item.path)">
+        <el-menu-item index="2" :key='i' v-if="item.children === undefined" @click="redirect(item.path)">
             <i :class="'fa fa-' + item.icon"></i>
             <span>{{ item.text }}</span>
         </el-menu-item>
@@ -31,8 +31,7 @@ export default {
       { icon: "dashboard", name:"1", text: "Dashboard", path: "/" },
       { icon: "user", name:"1" ,text: "Paciente",children: 
         [
-            { icon: "plus", text: "Agregar", path: "/pacienteCE" },
-            { icon: "list", text: "Listar", path: "/pacienteLI" }
+          
         ]
       },
       { icon: "user",name:"4" ,text:"Usuario",children: 

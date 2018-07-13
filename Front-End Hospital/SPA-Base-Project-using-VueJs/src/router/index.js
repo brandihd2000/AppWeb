@@ -8,11 +8,6 @@ import ExampleView from '@/components/example/View'
 import UsuarioIndex from '@/components/usuario/Index'
 import UsuarioCreateOrEdit from '@/components/usuario/CreateOrEdit'
 
-
-import PacienteCreateOrEdit from '@/components/paciente/CreateOrEdit'
-import PacienteListar from '@/components/paciente/Listar'
-
-
 Vue.use(Router)
 
 const routes = [
@@ -21,11 +16,7 @@ const routes = [
   { path: '/example/:id', name: 'ExampleView', component: ExampleView },
 
   { path: '/usuario', name: 'UsuarioIndex', component: UsuarioIndex },
-  { path: '/usuario/:id', name: 'UsuarioCreateOrEdit', component: UsuarioCreateOrEdit },
-
-  {path:'/pacienteCE',name:'CreateOrEdit',component:PacienteCreateOrEdit},
-  {path:'/pacienteLI',name:'Listar',component:PacienteListar},
-
+  { path: '/usuario/:id', name: 'UsuarioCreateOrEdit', component: UsuarioCreateOrEdit }
 ]
 
 export default new Router({

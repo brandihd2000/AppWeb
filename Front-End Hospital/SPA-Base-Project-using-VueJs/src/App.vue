@@ -1,6 +1,6 @@
 <template>
   <el-container>
-      <el-aside id="sideNav" style="width:0px;" >
+      <el-aside style="width:0px;" >
         <navegationmenu :key="$route.fullPath" ></navegationmenu>
       </el-aside>
     <el-container>
@@ -86,18 +86,17 @@ export default {
   created() {
         let self = this;
         self.getAll();
-
     },
  mounted(){
       let self = this;
-      self.invisible(); 
+      
   },
     methods: {
      
       cancelar(){
-         let self = this;
-         self.loginForm = false;
-         self.parametros.email='';
+        let self = this;
+        self.loginForm = false;
+        self.parametros.email='';
         self.parametros.contraseña='';
       },
       logOut(){
@@ -144,22 +143,17 @@ export default {
             .catch(r => {self.$message({message: "Ocurrio un error inesperado, contactar soporte.",type: "error" });
             });
         },
-    visible () {
-      const x = document.getElementById("sideNav");
-        if (x.style.visibility == 'hidden') {
-        x.style.visibility = 'visible';
-         x.style.width= '240px';
-     } else {
-        x.style.visibility = 'hidden';
-         x.style.width= '0px';
-     }  
-       }
-  },
-  invisible(){
-      const x = document.getElementById("sideNav");
-        x.style.width= '0px';
-      x.style.visibility = 'hidden';
-  }
+      visible() {
+          const x = document.getElementById("sideNav");
+          if (x.style.visibility == 'hidden') {
+              x.style.visibility = 'visible';
+              x.style.width= '240px';
+          } else {
+              x.style.visibility = 'hidden';
+              x.style.width= '0px';
+          }  
+        },
+   }
 };
 
 </script>

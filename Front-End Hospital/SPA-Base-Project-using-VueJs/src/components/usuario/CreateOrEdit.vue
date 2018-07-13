@@ -6,7 +6,7 @@
     <el-col :span="14" :offset="5">  
           <h2>{{titutlo}}</h2>
           
-            <el-form  inline="true" :model="usuario" :rules="rules" label-position="top" ref="usuario"  class="formStylebox"  >
+            <el-form  :inline="true" :model="usuario" :rules="rules" label-position="top" ref="usuario"  class="formStylebox"  >
                 <el-form-item label="Nombre" class="formStyle" prop="nombre">
                     <el-input v-model="usuario.nombre" placeholder="Nombre" ></el-input>
                 </el-form-item>
@@ -29,6 +29,7 @@
                 <el-form-item label="Email" class="formStyle" prop="email">
                     <el-input v-model="usuario.email" type="email" placeholder="Email"></el-input>
                 </el-form-item>
+                   {{usuario.idUsuario}}{{ email.idUsuario }}{{usuario.email }}{{email.email}}
                     <br>
                 <el-form-item label="Contraseña" class="formStyle" prop="contraseña">
                     <el-input type="password" v-model="usuario.contraseña" placeholder="Contraseña"></el-input>
@@ -44,6 +45,7 @@
                 <el-form-item class="busquedaInput" >
                     <el-button size="medium"  @click="$router.push(`/usuario`)" type="text">Volver a la Lista<i class="rotateIcon el-icon-back"> </i></el-button>
                 </el-form-item>
+             
             </el-form>
     </el-col>
 </el-row>
@@ -70,6 +72,8 @@ export default {
                 email:'',
                 contraseña:''
             },
+            email:{}
+            ,
             rules:{
                 nombre:[
                     {required:true, message:'Por favor introduzaca un nombre.', trigger:'blur'}
@@ -98,17 +102,11 @@ export default {
         titutlo: function(){
             return this.$route.params.id == 0 ? "Agregar Usuario" : "Editar Usuario";
         },
-        emailFilter: function() {
+        emailFilter: function(){
             let self = this;
         return self.usuarios.filter(el => {
             return el.email.toString().toLowerCase() == self.usuario.email.toLowerCase();
             });
-        },
-        acceso: function () {
-            let self = this;
-            if (!self.$session.exists() || self.$session.get('tipoDeAcceso') != "4") {
-                self.$router.push('/')
-             }
         }
     },
     created(){
@@ -116,12 +114,19 @@ export default {
         self.get(self.$route.params.id);
         self.getAll();
         self.acceso();
+        self.hazlo();
     },
     methods:{
         reiniciar(){
             let self = this;
             self.$refs['usuario'].resetFields();
             self.contraseñaConfirm ='';
+        },
+          acceso(){
+            let self = this;
+            if (!self.$session.exists() || self.$session.get('tipoDeAcceso') != "4") {
+                self.$router.push('/')
+             }
         },
          getAll() {
         let self = this;
@@ -167,12 +172,14 @@ export default {
         },
         save(){
             let self = this;
-          
+                
                 this.$refs["usuario"].validate((valid) => {
             if (valid && self.usuario.contraseña == self.contraseñaConfirm) {
-               if(self.emailFilter.length < 1){
                     self.loading = true;
-                    if(self.$route.params.id > 0){
+                    if(self.$route.params.id > 0)
+                    {
+                        self.email = self.emailFilter[0];
+                        if(self.emailFilter.length < 1){
                         self.$store.state.services.usuarioService
                         .update(self.$route.params.id,self.usuario)
                         .then( r => {
@@ -189,7 +196,31 @@ export default {
                                 type: "error"
                             });
                         });
+                        }else if( self.usuario.idUsuario == self.email.idUsuario && self.usuario.email == self.email.email ){
+                             self.$store.state.services.usuarioService
+                            .update(self.$route.params.id,self.usuario)
+                            .then( r => {
+                                    self.loading = false;
+                                    self.$router.push('/usuario');
+                                    self.$message({  
+                                    message: "Usuario Editado!",
+                                    type: "success"
+                                });
+                            })
+                            .catch(r => {
+                                self.$message({  
+                                    message: "Ocurrio un error inesperado, contactar soporte.",
+                                    type: "error"
+                                });
+                            });
+                        }else if(self.emailFilter.length > 0){
+                            self.$message({
+                            type: 'warning',
+                            message: 'Los correos deben ser unicos, cambielo por favor!'
+                        });
+                        }
                     }else{
+                    if(self.emailFilter.length < 1){
                         self.$store.state.services.usuarioService
                         .add(self.usuario)
                         .then( r => {
@@ -213,14 +244,14 @@ export default {
                                 type: "error"
                             });
                         });
+                        }else{
+                            self.$message({
+                            type: 'warning',
+                            message: 'Los correos deben ser unicos, cambielo por favor!'
+                      });
+                     }
                     }
-               }else{
-                    self.$message({
-                    type: 'warning',
-                    message: 'Los correos deben ser unicos, cambielo por favor!'
-                });
-               }
-              }else{
+                }else{
                     self.$message({
                     type: 'warning',
                     message: 'Las contraseñas deben coincidir!'

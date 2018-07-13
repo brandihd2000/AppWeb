@@ -72,8 +72,14 @@
                 el.email.toString().toLowerCase().match(self.busqueda.toLowerCase());
                 });
          }
-    ,
-     acceso: function () {
+    },
+    created() {
+        let self = this;
+        self.getAll();
+        self.acceso();
+    },
+    methods: {
+          acceso() {
         let self = this;
         if (!self.$session.exists() || self.$session.get('tipoDeAcceso') != "4") {
             self.$router.push('/')
@@ -83,14 +89,7 @@
         //     self.$router.push(`/`);
         //     self.$message({message: "Su sesión ha caducado.",type: "info" });
         // }
-         }
-    },
-    created() {
-        let self = this;
-        self.getAll();
-        self.acceso();
-    },
-    methods: {
+         },
         getAll() {
         let self = this;
         self.loading = true;
