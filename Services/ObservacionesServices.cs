@@ -66,6 +66,7 @@ namespace Services
         {
             try
             {
+                  
                 _applicationDbContext.Add(model);
                 _applicationDbContext.SaveChanges();
             }
