@@ -34,7 +34,7 @@ export default {
           
         ]
       },
-      { icon: "user",name:"4" ,text:"Usuario",children: 
+      { icon: "user", name:"4" ,text:"Usuario",children: 
         [
           { icon: "plus", text: "Agregar", path: "/usuario/0" },
           { icon: "list", text: "Listar", path: "/usuario" }

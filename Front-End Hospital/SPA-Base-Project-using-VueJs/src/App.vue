@@ -1,6 +1,6 @@
 <template>
   <el-container>
-      <el-aside style="width:0px;" >
+      <el-aside id="sideNav" style="width:0px;" >
         <navegationmenu :key="$route.fullPath" ></navegationmenu>
       </el-aside>
     <el-container>
@@ -155,6 +155,5 @@ export default {
         },
    }
 };
-
 </script>
 

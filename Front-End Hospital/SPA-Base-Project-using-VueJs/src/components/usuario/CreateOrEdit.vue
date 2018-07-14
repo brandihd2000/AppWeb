@@ -5,7 +5,6 @@
  <el-row :gutter="20">
     <el-col :span="14" :offset="5">  
           <h2>{{titutlo}}</h2>
-          
             <el-form  :inline="true" :model="usuario" :rules="rules" label-position="top" ref="usuario"  class="formStylebox"  >
                 <el-form-item label="Nombre" class="formStyle" prop="nombre">
                     <el-input v-model="usuario.nombre" placeholder="Nombre" ></el-input>
@@ -29,7 +28,6 @@
                 <el-form-item label="Email" class="formStyle" prop="email">
                     <el-input v-model="usuario.email" type="email" placeholder="Email"></el-input>
                 </el-form-item>
-                   {{usuario.idUsuario}}{{ email.idUsuario }}{{usuario.email }}{{email.email}}
                     <br>
                 <el-form-item label="Contraseña" class="formStyle" prop="contraseña">
                     <el-input type="password" v-model="usuario.contraseña" placeholder="Contraseña"></el-input>
@@ -45,7 +43,6 @@
                 <el-form-item class="busquedaInput" >
                     <el-button size="medium"  @click="$router.push(`/usuario`)" type="text">Volver a la Lista<i class="rotateIcon el-icon-back"> </i></el-button>
                 </el-form-item>
-             
             </el-form>
     </el-col>
 </el-row>
@@ -114,7 +111,6 @@ export default {
         self.get(self.$route.params.id);
         self.getAll();
         self.acceso();
-        self.hazlo();
     },
     methods:{
         reiniciar(){
