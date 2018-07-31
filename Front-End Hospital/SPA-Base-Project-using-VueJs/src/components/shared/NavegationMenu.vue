@@ -29,15 +29,22 @@ export default {
   data: () => ({
     items: [
       { icon: "dashboard", name:"1", text: "Dashboard", path: "/" },
-      { icon: "user", name:"1" ,text: "Paciente",children: 
+      { icon: "plus", name:"1" ,text: "Paciente",children: 
         [
-          
+          { icon: "plus", text: "Agregar", path: "/paciente/0" },
+          { icon: "list", text: "Listar", path: "/paciente" }
         ]
       },
       { icon: "user", name:"4" ,text:"Usuario",children: 
         [
           { icon: "plus", text: "Agregar", path: "/usuario/0" },
           { icon: "list", text: "Listar", path: "/usuario" }
+        ]
+      },
+      { icon: "info", name:"1" ,text: "Observaciones",children: 
+        [
+          { icon: "plus", text: "Agregar", path: "/observaciones/0" },
+          { icon: "list", text: "Listar", path: "/observaciones" }
         ]
       },
       { icon: "wrench", name:"1", text: "Configuración"} 
