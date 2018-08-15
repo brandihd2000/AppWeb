@@ -20,9 +20,9 @@
         <div v-loading="loading" >
             <el-table :data="observacionFilter"  :default-sort = "{prop: 'id', order: 'descending'}" style="width: 100%"  height="500">
                 <el-table-column prop="idObservaciones" label="Id"   width="70px"  sortable   ></el-table-column>
-                <el-table-column prop="idPaciente" label="Id Paciente"   width="150px"  sortable   ></el-table-column>
+                <el-table-column prop="idPaciente" label="Id Paciente"   width="120px"  sortable   ></el-table-column>
                 <el-table-column prop="discapacidad" label="Discapacidad"   width="170px"  ></el-table-column>
-                <el-table-column prop="enfermedades" label="Enfermedades"   width="170px"  ></el-table-column>
+                <el-table-column prop="enfermedades" label="Enfermedades"   width="300px"  ></el-table-column>
                 <el-table-column prop="alergias" label="Alergias"   width="170px"  ></el-table-column>
                 <el-table-column prop="medicamentos" label="Medicamentos" sortable  width="170px"  ></el-table-column>
 

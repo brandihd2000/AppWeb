@@ -103,7 +103,7 @@ export default {
     methods:{
         reiniciar(){
             let self = this;
-            self.$refs['pacientes'].resetFields();
+            self.$refs['paciente'].resetFields();
         },
           acceso(){
             let self = this;
