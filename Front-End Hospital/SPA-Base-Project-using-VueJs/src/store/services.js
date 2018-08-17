@@ -3,7 +3,7 @@ import exampleService from '../services/ExampleService'
 import usuarioService from '../services/UsuarioService'
 import pacienteService from '../services/PacienteService'
 import observacionesService from '../services/ObservacionesService'
-
+import diagnosticoService from '../services/DiagnosticoService'
 // Axios Configuration
 Axios.defaults.headers.common.Accept = 'application/json'
 
@@ -12,4 +12,6 @@ export default {
     usuarioService : new usuarioService(Axios),
     pacienteService : new pacienteService(Axios),
     observacionesService: new observacionesService(Axios),
+    diagnosticoService: new diagnosticoService(Axios)
+
 }

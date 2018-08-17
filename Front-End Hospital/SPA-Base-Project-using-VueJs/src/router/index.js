@@ -13,6 +13,9 @@ import PacienteCreateOrEdit from '@/components/paciente/CreateOrEdit'
 import ObservacionesIndex from '@/components/observaciones/Index'
 import ObservacionesCreateOrEdit from '@/components/observaciones/CreateOrEdit'
 
+import DiagnosticoIndex from '@/components/diagnostico/Index'
+import DiagnosticoCreateOrEdit from '@/components/diagnostico/CreateOrEdit'
+
 Vue.use(Router)
 
 const routes = [
@@ -27,7 +30,10 @@ const routes = [
   { path: '/paciente/:id', name: 'PacienteCreateOrEdit', component: PacienteCreateOrEdit },
 
   { path: '/observaciones', name: 'ObservacionesIndex', component: ObservacionesIndex },
-  { path: '/observaciones/:id', name: 'ObservacionesCreateOrEdit', component: ObservacionesCreateOrEdit }
+  { path: '/observaciones/:id', name: 'ObservacionesCreateOrEdit', component: ObservacionesCreateOrEdit },
+
+  { path: '/diagnostico', name: 'DiagnosticoIndex', component: DiagnosticoIndex },
+  { path: '/diagnostico/:id', name: 'DiagnosticoCreateOrEdit', component: DiagnosticoCreateOrEdit }
 ]
 
 export default new Router({

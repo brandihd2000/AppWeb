@@ -1,10 +1,5 @@
 <template>
   <el-container>
-      <el-aside id="sideNav" style="width:0px;" >
-        <navegationmenu :key="$route.fullPath" ></navegationmenu>
-      </el-aside>
-    <el-container>
-    <el-container>
       <el-header> 
         <div  class="botonNav">
           <el-button id="sideBar" v-if="this.$session.exists()" v-on:click="visible" icon="el-icon-menu" type="text"></el-button>
@@ -31,6 +26,10 @@
             </span>
           </el-dialog>
       </el-header>
+    <el-container>
+      <el-aside id="sideNav" style="width:0px;" class="sidenav" >
+        <navegationmenu :key="$route.fullPath" ></navegationmenu>
+      </el-aside>
       <el-main>
         <el-row>
           <el-col :span="20" :offset="2">
@@ -38,9 +37,8 @@
           </el-col>
         </el-row>
       </el-main>
-      <el-footer></el-footer>
     </el-container>
-   </el-container>
+      <el-footer></el-footer>
 </el-container>
 </template>
 <script>
@@ -121,6 +119,7 @@ export default {
                   self.$session.set('finalDeSesion',Date.now() + 1800000);
                   self.$session.set('tipoDeAcceso',self.info.tipo );
                   self.$session.set('usuarioActual',self.info.nombre +" "+self.info.apellido);
+                  self.$session.set('usuarioActualId',self.info.idUsuario);
                   self.loginForm = false;
                   self.$message({message: "Bienvenido " + self.$session.get('usuarioActual') + "!",type: "success" });
                   self.$router.push(`/logIn`);

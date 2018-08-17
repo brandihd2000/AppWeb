@@ -1,11 +1,8 @@
 <template>
- <div  >
-
-
- <el-row :gutter="20">
-    <el-col :span="14" :offset="5">  
-          <h2>{{titutlo}}</h2>
+        <div>
+         
             <el-form  :inline="true" :model="usuario" :rules="rules" label-position="top" ref="usuario"  class="formStylebox"  >
+                <h2>{{titutlo}}</h2>
                 <el-form-item label="Nombre" class="formStyle" prop="nombre">
                     <el-input v-model="usuario.nombre" placeholder="Nombre" ></el-input>
                 </el-form-item>
@@ -44,12 +41,7 @@
                     <el-button size="medium"  @click="$router.push(`/usuario`)" type="text">Volver a la Lista<i class="rotateIcon el-icon-back"> </i></el-button>
                 </el-form-item>
             </el-form>
-    </el-col>
-</el-row>
-
-  
-   
- </div>
+        </div>
 </template>
 
 <script>

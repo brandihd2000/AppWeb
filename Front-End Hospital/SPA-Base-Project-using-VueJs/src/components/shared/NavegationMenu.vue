@@ -1,7 +1,10 @@
 <template >
-<el-menu  default-active="0">
-
+<el-menu  default-active="0"   text-color="#fff"  background-color="#545c64"  active-text-color="#ffd04b"> 
+  <el-menu-item index="4" v-on:click="visible2" >
+        <span style="float:right;width:20px;" ><i class="el-icon-circle-close-outline"></i></span>
+      </el-menu-item>
     <template v-for="(item, i) in items" v-if="item.name <= getsession"  >
+      
         <el-submenu :index="i.toString()"  :key='i' v-if="item.children !== undefined">
             <template slot="title">
                 <i :class="'fa fa-' + item.icon"></i>
@@ -47,6 +50,12 @@ export default {
           { icon: "list", text: "Listar", path: "/observaciones" }
         ]
       },
+      { icon: "search", name:"1" ,text: "Diagnostico",children: 
+        [
+          { icon: "plus", text: "Agregar", path: "/diagnostico/0" },
+          { icon: "list", text: "Listar", path: "/diagnostico" }
+        ]
+      },
       { icon: "wrench", name:"1", text: "Configuración"} 
     ]
   }),
@@ -54,7 +63,12 @@ export default {
     redirect(path) {
       if(path === undefined) return;
       this.$router.push(path);
-    }
+    },
+    visible2() {
+          const x = document.getElementById("sideNav");
+              x.style.visibility = 'hidden';
+              x.style.width= '0px';
+        }
   },
   computed:{
      getsession: function(){

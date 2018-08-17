@@ -2,12 +2,39 @@ body {
   font-family: 'Roboto';
   margin: 0px;
   color: #2D2F33;
+  margin-bottom: 40px;
+
 }
 
 .el-container .el-header:first-child {
-  background: #2d2f33;
+  background: #545c64;
   color:#fff;
+  margin-bottom: 40px;
+}
 
+.sidenav {
+    width: 0;
+    position: fixed;
+    z-index: 1;
+  top:0;
+    height: 100%;  
+    left: 0;
+    background-color: #545c64;
+    overflow-x: hidden;
+    transition: 0.5s;
+}   
+el-header{
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right:0;
+}
+
+
+.el-menu  {
+  background: #545c64;
+  color:#fff;
+  margin-bottom: 40px;
 }
 
 .busquedaInput {
@@ -15,6 +42,9 @@ body {
   float:right;
   padding: 5px;
 }
+
+
+
 
 .tituloLista{
   max-width: 200px;
